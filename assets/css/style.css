@@ -1,0 +1,1336 @@
+/* ============================================================================
+   Auren — assets/css/style.css
+   Palette sampled directly from the approved design reference:
+   primary #3B9AFF, accent text #2D8CF9, dark ink #08121F,
+   hero gradient #E6F2FD -> #EBF1F8, soft chips #D9ECFC / #E5EFFC.
+   ============================================================================ */
+
+:root {
+    --auren-primary: #2584F5;
+    --auren-primary-hover: #1D6FDE;
+    --auren-accent-text: #2584F5;
+    --auren-ink: #101828;
+    --auren-bg-soft: #EAF2FE;
+    --auren-bg-strip: #FBFCFE;
+    --auren-chip-blue: #E4EEFD;
+    --auren-chip-blue-strong: #E5EFFC;
+    --auren-border: #E9EDF3;
+    --auren-text-muted: #5B6B7C;
+    --auren-radius: 14px;
+    --auren-radius-lg: 20px;
+    --auren-font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --auren-font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --auren-shadow-sm: 0 2px 8px -2px rgba(16, 24, 40, 0.06);
+    --auren-shadow-md: 0 8px 24px -8px rgba(16, 24, 40, 0.10);
+    --auren-shadow-lg: 0 20px 48px -12px rgba(16, 24, 40, 0.16);
+}
+
+body {
+    font-family: var(--auren-font-sans);
+    background-color: #ffffff;
+    color: var(--auren-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.006em;
+}
+
+h1, h2, h3, h4, h5, h6, .auren-brand, .display-font {
+    font-family: var(--auren-font-display);
+    letter-spacing: -0.02em;
+}
+
+/* ---------------- Navbar ---------------- */
+.auren-navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--auren-border);
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+}
+.auren-navbar .container { max-width: 1200px; }
+
+.auren-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--auren-ink) !important;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+.auren-brand img { height: 34px; width: auto; display: block; }
+
+.auren-brand i {
+    color: var(--auren-primary);
+    margin-right: 0.4rem;
+}
+
+/* Centered nav links (QuickHire style) */
+.auren-navbar .navbar-nav.auren-nav-center {
+    gap: 0.35rem;
+}
+.auren-navbar .nav-link {
+    color: #3a4a5c;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.95rem;
+    border-radius: 10px;
+    transition: color 0.12s ease, background 0.12s ease;
+}
+
+.auren-navbar .nav-link:hover {
+    color: var(--auren-primary);
+    background: var(--auren-bg-soft);
+}
+.auren-navbar .nav-link.active {
+    color: var(--auren-primary);
+    font-weight: 600;
+}
+
+.auren-btn-primary {
+    background-color: var(--auren-primary);
+    border-color: var(--auren-primary);
+    color: #fff !important;
+    font-weight: 600;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px -6px rgba(37, 132, 245, 0.45);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.auren-btn-primary:active { transform: translateY(1px); }
+
+.auren-btn-primary:hover {
+    background-color: var(--auren-primary-hover);
+    border-color: var(--auren-primary-hover);
+    color: #fff;
+}
+
+.auren-btn-outline {
+    color: var(--auren-primary) !important;
+    border-color: var(--auren-primary) !important;
+    font-weight: 600;
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+.auren-btn-outline:hover {
+    background-color: var(--auren-primary);
+    color: #fff !important;
+}
+
+/* Secondary (white pill) button, like "Post a job" in the reference */
+.btn-outline-secondary {
+    border-radius: 999px !important;
+    background: #fff;
+    font-weight: 600;
+}
+
+/* ---------------- Footer ---------------- */
+.auren-footer {
+    background-color: var(--auren-bg-strip);
+    border-top: 1px solid var(--auren-border);
+    margin-top: 4rem;
+}
+
+.auren-footer a {
+    color: var(--auren-text-muted);
+    text-decoration: none;
+}
+
+.auren-footer a:hover {
+    color: var(--auren-primary);
+}
+
+/* ---------------- Cards (job cards, stat cards) ---------------- */
+.auren-card {
+    background: #fff;
+    border: 1px solid var(--auren-border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.auren-card:hover {
+    box-shadow: 0 10px 28px rgba(8, 18, 31, 0.08);
+    transform: translateY(-2px);
+}
+
+.auren-stat-card {
+    background: #fff;
+    border: 1px solid var(--auren-border);
+    border-radius: 16px;
+    padding: 1.4rem;
+}
+
+.auren-stat-card .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--auren-ink);
+}
+
+.auren-stat-card .stat-label {
+    color: var(--auren-text-muted);
+    font-size: 0.9rem;
+}
+
+.auren-stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--auren-chip-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--auren-primary);
+    font-size: 1.2rem;
+}
+
+/* ---------------- Status badges ---------------- */
+.auren-badge {
+    display: inline-block;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.auren-badge-open      { background-color: var(--auren-chip-blue-strong); color: var(--auren-primary-hover); }
+.auren-badge-closed    { background-color: #F1F3F5; color: #6B7680; }
+.auren-badge-filled    { background-color: #E7F6EC; color: #1E7A3D; }
+.auren-badge-expired   { background-color: #FBEAEA; color: #B03A3A; }
+.auren-badge-pending   { background-color: #FFF4E0; color: #B8791A; }
+.auren-badge-accepted  { background-color: #E7F6EC; color: #1E7A3D; }
+.auren-badge-rejected  { background-color: #FBEAEA; color: #B03A3A; }
+
+/* ---------------- Dashboard layout (sidebar + content) ---------------- */
+.auren-dashboard-wrap {
+    display: flex;
+    min-height: calc(100vh - 250px);
+}
+
+.auren-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--auren-bg-soft);
+    border-right: 1px solid var(--auren-border);
+    padding: 1.5rem 1rem;
+}
+
+.auren-sidebar-heading {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--auren-text-muted);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding: 0 0.6rem;
+}
+
+.auren-side-link {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    color: #33414d;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+}
+
+.auren-side-link i {
+    margin-right: 0.55rem;
+    width: 18px;
+    display: inline-block;
+    text-align: center;
+}
+
+.auren-side-link:hover {
+    background: var(--auren-chip-blue);
+    color: var(--auren-primary-hover);
+}
+
+.auren-side-link.active {
+    background: var(--auren-primary);
+    color: #fff;
+}
+
+.auren-dashboard-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .auren-dashboard-wrap { flex-direction: column; }
+    .auren-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--auren-border);
+    }
+}
+
+/* ---------------- Hero (polished, reference-matched) ---------------- */
+.auren-hero {
+    background:
+        radial-gradient(at 18% 12%, rgba(140, 190, 255, 0.28) 0px, transparent 55%),
+        radial-gradient(at 82% 4%, rgba(150, 210, 250, 0.24) 0px, transparent 50%),
+        radial-gradient(at 45% 88%, rgba(180, 200, 255, 0.20) 0px, transparent 55%),
+        linear-gradient(180deg, #E8F1FE 0%, #EAF3FE 55%, #F1F6FC 100%);
+    padding: 6rem 0 6.5rem;
+    position: relative;
+    overflow: visible;
+}
+.auren-hero .container {
+    max-width: 1200px;
+}
+
+.auren-hero h1 {
+    font-size: 3.1rem;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: var(--auren-ink);
+    margin-bottom: 1.25rem !important;
+}
+
+.auren-hero h1 .accent {
+    color: var(--auren-accent-text);
+}
+
+@media (max-width: 991px) {
+    .auren-hero { padding: 4rem 0 4rem; }
+    .auren-hero h1 { font-size: 2.4rem; }
+}
+@media (max-width: 768px) {
+    .auren-hero h1 { font-size: 2rem; }
+}
+
+.auren-hero .lead {
+    font-size: 1.075rem;
+    line-height: 1.65;
+    max-width: 500px;
+    color: var(--auren-text-muted) !important;
+}
+
+/* Hero secondary (Post a job) button — clean pill outline */
+.auren-hero .btn-outline-secondary {
+    border-radius: 999px;
+    border: 1.5px solid var(--auren-border);
+    color: var(--auren-ink);
+    font-weight: 600;
+    padding: 0.65rem 1.5rem;
+    background: #fff;
+}
+.auren-hero .btn-outline-secondary:hover {
+    border-color: var(--auren-primary);
+    color: var(--auren-primary);
+    background: #fff;
+}
+.auren-trust-row {
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    color: var(--auren-text-muted);
+    font-size: 0.92rem;
+    margin-top: 0.5rem;
+}
+.auren-trust-row i { color: var(--auren-primary); margin-right: 0.35rem; }
+
+.auren-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--auren-chip-blue);
+    border: 1px solid rgba(59, 154, 255, 0.25);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--auren-primary-hover);
+}
+
+.auren-pill-badge i {
+    color: var(--auren-primary);
+}
+
+.auren-trust-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #46555f;
+    font-weight: 500;
+}
+
+.auren-trust-row i {
+    color: var(--auren-primary);
+    margin-right: 0.3rem;
+}
+
+/* The floating search/results card on the right of the hero */
+.auren-hero-panel {
+    background: #fff;
+    border: 1px solid rgba(230, 237, 245, 0.8);
+    border-radius: 18px;
+    padding: 1.1rem;
+    box-shadow: 0 20px 50px rgba(8, 18, 31, 0.10);
+    position: relative;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auren-hero-search {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--auren-bg-soft);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    color: var(--auren-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+}
+
+.auren-job-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    border: 1px solid var(--auren-border);
+    border-radius: 12px;
+    padding: 0.7rem 0.85rem;
+    margin-bottom: 0.55rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(8, 18, 31, 0.03);
+}
+
+.auren-job-row:last-child { margin-bottom: 0; }
+
+.auren-avatar-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--auren-primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.auren-job-row-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--auren-ink);
+}
+
+.auren-job-row-meta {
+    font-size: 0.72rem;
+    color: var(--auren-text-muted);
+}
+
+.auren-job-row-price {
+    margin-left: auto;
+    background: var(--auren-chip-blue-strong);
+    color: var(--auren-primary-hover);
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* Floating stat badges that overlap the hero panel */
+.auren-floating-badge {
+    position: absolute;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(8, 18, 31, 0.14);
+    padding: 0.7rem 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    z-index: 5;
+}
+
+.auren-floating-badge .fb-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.auren-floating-badge .fb-number {
+    font-weight: 800;
+    font-size: 0.92rem;
+    line-height: 1.1;
+    color: var(--auren-ink);
+}
+
+.auren-floating-badge .fb-label {
+    font-size: 0.68rem;
+    color: var(--auren-text-muted);
+}
+
+.auren-floating-badge--top {
+    top: -1.1rem;
+    right: -0.5rem;
+}
+
+.auren-floating-badge--bottom {
+    bottom: 1.25rem;
+    left: -1.75rem;
+}
+
+@media (max-width: 991px) {
+    .auren-floating-badge--top { top: -0.9rem; right: 0.5rem; }
+    .auren-floating-badge--bottom { bottom: -0.9rem; left: 0.5rem; }
+}
+
+/* Big stat strip below the hero */
+.auren-stat-strip {
+    padding: 4rem 0;
+    background: var(--auren-bg-strip);
+}
+
+.auren-stat-strip .stat-number {
+    font-family: var(--auren-font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--auren-ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.auren-stat-strip .stat-label {
+    color: var(--auren-text-muted);
+    font-weight: 500;
+    font-size: 0.92rem;
+}
+
+/* ============================================================================
+   SPLIT-SCREEN AUTH PAGES (login / register)
+   A full-bleed two-panel layout: a branded gradient panel on one side,
+   the form on the other. Used only by auth pages via auth_header.php.
+   ============================================================================ */
+.auren-auth-body {
+    margin: 0;
+    background: #ffffff;
+}
+
+.auren-auth-split {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Form column */
+.auren-auth-form-col {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+    background: linear-gradient(180deg, #F7FAFF 0%, #ffffff 60%);
+}
+
+.auren-auth-form-inner {
+    width: 100%;
+    max-width: 430px;
+}
+
+/* Colour (brand) panel */
+.auren-auth-panel {
+    flex: 1 1 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+    color: #fff;
+    background: linear-gradient(150deg, #2D8CF9 0%, #3B9AFF 55%, #5FB0FF 100%);
+    overflow: hidden;
+}
+
+/* soft decorative glow in the panel */
+.auren-auth-panel::before {
+    content: "";
+    position: absolute;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    top: -140px;
+    right: -140px;
+}
+.auren-auth-panel::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    bottom: -120px;
+    left: -80px;
+}
+
+.auren-auth-brand {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+}
+.auren-auth-brand-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.auren-auth-panel-body {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+}
+/* Default panel body sits toward the lower third (matches reference) */
+.auren-auth-panel--quote .auren-auth-panel-body {
+    margin-top: auto;
+    margin-bottom: 2.5rem;
+}
+/* Centered variant: heading vertically centered (used on sign-in) */
+.auren-auth-panel--center {
+    justify-content: center;
+}
+.auren-auth-panel--center .auren-auth-brand {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+}
+.auren-auth-panel-heading {
+    font-size: 2.4rem;
+    line-height: 1.18;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+/* Large pulled-quote treatment for the testimonial panel */
+.auren-auth-panel-quote {
+    position: relative;
+    z-index: 1;
+    font-size: 2.3rem;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+.auren-auth-panel-sub {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0;
+}
+.auren-auth-panel-attr {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+}
+.auren-auth-panel-footer {
+    position: relative;
+    z-index: 1;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+.auren-auth-panel-stat {
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.82);
+    margin-top: 0.5rem;
+}
+
+/* Form typography + controls */
+.auren-auth-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--auren-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+.auren-auth-back:hover { color: var(--auren-primary); }
+
+.auren-auth-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--auren-ink);
+    margin-bottom: 0.35rem;
+}
+.auren-auth-subtitle {
+    color: var(--auren-text-muted);
+    margin-bottom: 1.75rem;
+}
+
+.auren-auth-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3a4654;
+    margin-bottom: 0.35rem;
+}
+
+.auren-auth-eyebrow {
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--auren-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* "I want to" role cards */
+.auren-role-cards {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+.auren-role-card {
+    flex: 1 1 50%;
+    border: 1.5px solid var(--auren-border);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+    background: #fff;
+}
+.auren-role-card:hover { border-color: #B9D6FB; }
+.auren-role-card-title {
+    font-weight: 700;
+    color: var(--auren-ink);
+    font-size: 0.98rem;
+}
+.auren-role-card-sub {
+    font-size: 0.8rem;
+    color: var(--auren-text-muted);
+    margin-top: 0.1rem;
+}
+/* the hidden radio drives the selected state via :checked + label */
+.auren-role-input { position: absolute; opacity: 0; pointer-events: none; }
+.auren-role-input:checked + .auren-role-card {
+    border-color: var(--auren-primary);
+    background: #EFF6FF;
+    box-shadow: 0 0 0 3px rgba(59, 154, 255, 0.15);
+}
+
+.auren-auth-input {
+    border: 1.5px solid var(--auren-border);
+    border-radius: 10px;
+    padding: 0.6rem 0.85rem;
+    width: 100%;
+    font-size: 0.95rem;
+    transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+.auren-auth-input:focus {
+    outline: none;
+    border-color: var(--auren-primary);
+    box-shadow: 0 0 0 3px rgba(59, 154, 255, 0.15);
+}
+
+.auren-auth-submit {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(180deg, #4AA0FF 0%, #2D8CF9 100%);
+    box-shadow: 0 8px 18px rgba(45, 140, 249, 0.3);
+    cursor: pointer;
+    transition: filter 0.12s ease;
+}
+.auren-auth-submit:hover { filter: brightness(1.04); }
+
+.auren-auth-alt {
+    text-align: center;
+    color: var(--auren-text-muted);
+    font-size: 0.92rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+.auren-auth-alt a { color: var(--auren-primary); font-weight: 600; text-decoration: none; }
+.auren-auth-alt a:hover { text-decoration: underline; }
+
+.auren-auth-legal {
+    text-align: center;
+    color: var(--auren-text-muted);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Stack to a single column on small screens: hide the colour panel */
+@media (max-width: 860px) {
+    .auren-auth-panel { display: none; }
+    .auren-auth-form-col { flex-basis: 100%; }
+}
+
+/* ============================================================================
+   PROFILE AVATAR + DROPDOWN (navbar, logged-in users)
+   ============================================================================ */
+.auren-avatar-toggle {
+    padding: 0.25rem 0.4rem !important;
+    border-radius: 999px;
+    transition: background 0.12s ease;
+}
+.auren-avatar-toggle:hover,
+.auren-avatar-toggle[aria-expanded="true"] {
+    background: rgba(59, 154, 255, 0.08);
+}
+.auren-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3B9AFF 0%, #2D8CF9 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(45, 140, 249, 0.3);
+}
+.auren-avatar-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--auren-ink, #08121F);
+}
+.auren-avatar-role {
+    font-size: 0.72rem;
+    color: var(--auren-text-muted, #6D8691);
+}
+.auren-avatar-caret {
+    font-size: 0.7rem;
+    color: var(--auren-text-muted, #6D8691);
+}
+.auren-profile-dropdown {
+    border: 1px solid var(--auren-border, #E6EDF5);
+    border-radius: 12px;
+    padding: 0.4rem;
+    min-width: 240px;
+    margin-top: 0.5rem;
+}
+.auren-profile-dropdown .dropdown-item {
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #33414d;
+}
+.auren-profile-dropdown .dropdown-item:hover {
+    background: #EFF6FF;
+    color: var(--auren-primary, #3B9AFF);
+}
+.auren-profile-dropdown .dropdown-item.text-danger:hover {
+    background: #FDECEC;
+    color: #dc3545 !important;
+}
+.auren-profile-dropdown .dropdown-item i {
+    color: var(--auren-text-muted, #6D8691);
+    width: 1rem;
+}
+.auren-profile-dropdown .dropdown-item:hover i { color: inherit; }
+.auren-profile-dropdown .dropdown-divider {
+    margin: 0.35rem 0.25rem;
+    border-color: var(--auren-border, #E6EDF5);
+}
+
+/* ============================================================================
+   BROWSE JOBS — QuickHire-style hero, filter sidebar, rich cards
+   ============================================================================ */
+.auren-browse-hero {
+    background: linear-gradient(180deg, #EAF3FF 0%, #F2F8FF 55%, #FFFFFF 100%);
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--auren-border, #E6EDF5);
+}
+.auren-browse-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--auren-ink, #08121F);
+    margin-bottom: 0.25rem;
+}
+.auren-browse-sub {
+    color: var(--auren-text-muted, #6D8691);
+    margin-bottom: 1.5rem;
+}
+.auren-browse-search {
+    display: flex;
+    gap: 0.6rem;
+    background: #fff;
+    border: 1px solid var(--auren-border, #E6EDF5);
+    border-radius: 16px;
+    padding: 0.6rem;
+    box-shadow: 0 10px 30px rgba(45, 140, 249, 0.08);
+    flex-wrap: wrap;
+}
+.auren-search-inputwrap {
+    position: relative;
+    flex: 1 1 340px;
+    display: flex;
+    align-items: center;
+}
+.auren-search-inputwrap i {
+    position: absolute;
+    left: 1rem;
+    color: var(--auren-text-muted, #6D8691);
+}
+.auren-search-inputwrap input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0.7rem 1rem 0.7rem 2.5rem;
+    font-size: 0.98rem;
+    border-radius: 10px;
+    background: transparent;
+}
+.auren-search-select {
+    border: 1px solid var(--auren-border, #E6EDF5);
+    border-radius: 10px;
+    padding: 0 0.9rem;
+    font-size: 0.92rem;
+    color: #33414d;
+    min-width: 140px;
+    background: #fff;
+}
+.auren-search-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(180deg, #4AA0FF 0%, #2D8CF9 100%);
+    box-shadow: 0 6px 14px rgba(45, 140, 249, 0.3);
+    cursor: pointer;
+}
+.auren-search-btn:hover { filter: brightness(1.05); }
+
+.auren-browse-body { padding-top: 2rem; padding-bottom: 3rem; }
+
+/* Filter sidebar */
+.auren-filter-panel {
+    background: #fff;
+    border: 1px solid var(--auren-border, #E6EDF5);
+    border-radius: 16px;
+    padding: 1.25rem;
+    position: sticky;
+    top: 1rem;
+}
+.auren-filter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--auren-ink, #08121F);
+    margin-bottom: 1rem;
+}
+.auren-filter-head i { color: var(--auren-primary, #3B9AFF); }
+.auren-filter-clear {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--auren-primary, #3B9AFF);
+    text-decoration: none;
+}
+.auren-filter-clear:hover { text-decoration: underline; }
+.auren-filter-group { margin-bottom: 1.4rem; }
+.auren-filter-label {
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--auren-text-muted, #6D8691);
+    margin-bottom: 0.6rem;
+}
+.auren-pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.auren-pill {
+    display: inline-block;
+    padding: 0.32rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #33414d;
+    background: #F1F5FB;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.12s ease;
+}
+.auren-pill:hover { background: #E1ECFA; color: var(--auren-primary, #3B9AFF); }
+.auren-pill.active {
+    background: var(--auren-primary, #3B9AFF);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(59, 154, 255, 0.35);
+}
+.auren-range {
+    width: 100%;
+    accent-color: var(--auren-primary, #3B9AFF);
+    margin: 0.2rem 0 0.3rem;
+}
+.auren-range-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--auren-text-muted, #6D8691);
+}
+
+/* Rich job cards */
+.auren-job-card {
+    background: #fff;
+    border: 1px solid var(--auren-border, #E6EDF5);
+    border-radius: 16px;
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.auren-job-card:hover {
+    box-shadow: 0 12px 28px rgba(20, 40, 80, 0.10);
+    transform: translateY(-2px);
+    border-color: #CFE0F7;
+}
+.auren-job-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+}
+.auren-job-poster { display: flex; align-items: center; gap: 0.6rem; }
+.auren-job-company { font-weight: 700; font-size: 0.92rem; color: var(--auren-ink, #08121F); line-height: 1.2; }
+.auren-job-time { font-size: 0.78rem; color: var(--auren-text-muted, #6D8691); }
+.auren-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--auren-primary, #3B9AFF);
+    background: #EAF3FF;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.auren-verified.auren-featured { color: #B8791A; background: #FFF4E0; }
+.auren-cat-chip {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #5B6B7B;
+    background: #F1F5FB;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+.auren-job-title { font-size: 1.05rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.85rem; }
+.auren-job-title a { color: var(--auren-ink, #08121F); text-decoration: none; }
+.auren-job-title a:hover { color: var(--auren-primary, #3B9AFF); }
+.auren-job-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    color: #4a5865;
+    margin-bottom: 1.1rem;
+}
+.auren-job-meta i { color: var(--auren-text-muted, #6D8691); margin-right: 0.15rem; }
+.auren-job-actions { margin-top: auto; display: flex; gap: 0.5rem; }
+.auren-view-btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--auren-primary, #3B9AFF);
+    background: #fff;
+    border: 1.5px solid var(--auren-primary, #3B9AFF);
+    text-decoration: none;
+    transition: all 0.12s ease;
+}
+.auren-view-btn:hover { background: var(--auren-primary, #3B9AFF); color: #fff; }
+.auren-save-btn {
+    border: 1.5px solid var(--auren-border, #E6EDF5);
+    background: #fff;
+    border-radius: 10px;
+    width: 44px;
+    color: var(--auren-text-muted, #6D8691);
+    cursor: pointer;
+}
+.auren-save-btn:hover { border-color: var(--auren-primary, #3B9AFF); color: var(--auren-primary, #3B9AFF); }
+
+@media (max-width: 991px) {
+    .auren-filter-panel { position: static; margin-bottom: 1rem; }
+}
+
+/* ============================================================================
+   STATIC CONTENT PAGES (For Employers, How It Works, About)
+   ============================================================================ */
+.auren-page-hero {
+    background:
+        radial-gradient(at 20% 15%, rgba(140, 190, 255, 0.24) 0px, transparent 55%),
+        radial-gradient(at 80% 0%, rgba(150, 210, 250, 0.20) 0px, transparent 50%),
+        linear-gradient(180deg, #E8F1FE 0%, #EEF5FE 60%, #F5F9FD 100%);
+    padding: 4.5rem 0 4rem;
+    border-bottom: 1px solid var(--auren-border);
+    text-align: center;
+}
+.auren-page-hero h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    color: var(--auren-ink);
+    margin-bottom: 1rem;
+}
+.auren-page-hero p.lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--auren-text-muted);
+    max-width: 640px;
+    margin: 0 auto 1.75rem;
+}
+@media (max-width: 768px) { .auren-page-hero h1 { font-size: 2rem; } }
+
+.auren-section { padding: 4.5rem 0; }
+.auren-section--tint { background: var(--auren-bg-strip); }
+.auren-section-head { max-width: 680px; margin: 0 auto 3rem; text-align: center; }
+.auren-section-head .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--auren-primary);
+    margin-bottom: 0.6rem;
+    display: block;
+}
+.auren-section-head h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--auren-ink);
+    margin-bottom: 0.75rem;
+}
+.auren-section-head p { color: var(--auren-text-muted); font-size: 1.03rem; line-height: 1.6; }
+
+/* Feature / step cards */
+.auren-feature-card {
+    background: #fff;
+    border: 1px solid var(--auren-border);
+    border-radius: var(--auren-radius-lg);
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.auren-feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--auren-shadow-lg);
+    border-color: #CFE0F7;
+}
+.auren-feature-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    color: #fff;
+    background: linear-gradient(135deg, #4AA0FF 0%, #2584F5 100%);
+    box-shadow: 0 8px 18px -6px rgba(37, 132, 245, 0.5);
+    margin-bottom: 1.1rem;
+}
+.auren-feature-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--auren-ink); margin-bottom: 0.5rem; }
+.auren-feature-card p { color: var(--auren-text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+/* Numbered step */
+.auren-step { position: relative; padding-left: 4.5rem; margin-bottom: 2.25rem; }
+.auren-step:last-child { margin-bottom: 0; }
+.auren-step-num {
+    position: absolute; left: 0; top: 0;
+    width: 3rem; height: 3rem;
+    border-radius: 50%;
+    background: var(--auren-bg-soft);
+    color: var(--auren-primary);
+    font-family: var(--auren-font-display);
+    font-weight: 700; font-size: 1.15rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid #D3E4FB;
+}
+.auren-step h3 { font-size: 1.2rem; font-weight: 700; color: var(--auren-ink); margin-bottom: 0.4rem; }
+.auren-step p { color: var(--auren-text-muted); line-height: 1.65; margin: 0; }
+
+/* CTA band */
+.auren-cta-band {
+    background: linear-gradient(135deg, #1D6FDE 0%, #2584F5 55%, #4AA0FF 100%);
+    border-radius: 24px;
+    padding: 3.25rem 2.5rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: var(--auren-shadow-lg);
+}
+.auren-cta-band h2 { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.6rem; color: #fff; }
+.auren-cta-band p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 1.75rem; }
+.auren-btn-white {
+    background: #fff; color: var(--auren-primary) !important;
+    font-weight: 600; padding: 0.7rem 1.7rem; border-radius: 999px;
+    text-decoration: none; display: inline-block;
+    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.25);
+}
+.auren-btn-white:hover { background: #F0F6FF; }
+.auren-btn-ghost {
+    background: rgba(255,255,255,0.12); color: #fff !important;
+    font-weight: 600; padding: 0.7rem 1.7rem; border-radius: 999px;
+    text-decoration: none; display: inline-block; border: 1.5px solid rgba(255,255,255,0.5);
+}
+.auren-btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+/* About: value list + mission */
+.auren-value-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+.auren-value-check {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--auren-bg-soft); color: var(--auren-primary);
+    display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+    margin-top: 2px;
+}
+.auren-value-row h4 { font-size: 1.05rem; font-weight: 700; color: var(--auren-ink); margin-bottom: 0.25rem; }
+.auren-value-row p { color: var(--auren-text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+.auren-mini-stat { text-align: center; }
+.auren-mini-stat .num {
+    font-family: var(--auren-font-display); font-size: 2.4rem; font-weight: 700;
+    color: var(--auren-primary); letter-spacing: -0.03em; line-height: 1;
+}
+.auren-mini-stat .lbl { color: var(--auren-text-muted); font-size: 0.9rem; margin-top: 0.4rem; }
+
+/* ============================================================================
+   HOMEPAGE ROLLING SECTIONS (featured jobs button, category cards)
+   ============================================================================ */
+.auren-btn-soft {
+    background: var(--auren-chip-blue);
+    color: var(--auren-primary) !important;
+    font-weight: 600;
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    white-space: nowrap;
+    transition: background 0.12s ease;
+}
+.auren-btn-soft:hover { background: #D3E4FB; }
+.auren-btn-soft i { margin-left: 0.25rem; }
+
+/* Category cards */
+.auren-cat-card {
+    display: block;
+    background: #fff;
+    border: 1px solid var(--auren-border);
+    border-radius: var(--auren-radius);
+    padding: 1.35rem 1.25rem;
+    text-decoration: none;
+    height: 100%;
+    transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+}
+.auren-cat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--auren-shadow-md);
+    border-color: #CFE0F7;
+}
+.auren-cat-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    color: var(--auren-primary);
+    background: var(--auren-bg-soft);
+    margin-bottom: 0.85rem;
+}
+.auren-cat-name {
+    font-weight: 700;
+    color: var(--auren-ink);
+    font-size: 0.98rem;
+    line-height: 1.25;
+    margin-bottom: 0.2rem;
+}
+.auren-cat-count { color: var(--auren-text-muted); font-size: 0.85rem; }
+
+/* Static (non-absolute) numbered step for the homepage teaser */
+.auren-section .auren-step-num.mx-auto { display: flex; }
+
+/* ---- Auth: forgot-password link + resend link-button ---- */
+.auren-auth-forgot {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--auren-primary);
+    text-decoration: none;
+}
+.auren-auth-forgot:hover { text-decoration: underline; }
+.auren-auth-linkbtn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--auren-primary);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: inherit;
+}
+.auren-auth-linkbtn:hover { text-decoration: underline; }
+
+/* ============================================================================
+   PROFILE PAGE (avatar image, identity pills, header)
+   ============================================================================ */
+.auren-avatar-img {
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    border: 2px solid var(--auren-border);
+    background: #fff;
+}
+.auren-profile-header {
+    background: linear-gradient(180deg, #F5F9FE 0%, #FFFFFF 70%);
+}
+
+/* Identity / verification status pills */
+.auren-idpill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    line-height: 1;
+}
+.auren-idpill--ok   { background: #E7F6EC; color: #1E7A3D; }
+.auren-idpill--wait { background: #FEF4E6; color: #A15C06; }
+.auren-idpill--none { background: #FDECEC; color: #B42318; }
+
+/* Current-document box in the identity section */
+.auren-id-current {
+    border: 1px solid var(--auren-border);
+    background: var(--auren-bg-strip);
+    border-radius: var(--auren-radius);
+    padding: 0.85rem 1rem;
+}

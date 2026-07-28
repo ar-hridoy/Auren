@@ -1,0 +1,5 @@
+# Identity documents are sensitive — block all direct web access.
+# They are served only through view_id.php, which checks the viewer is the
+# document's owner or an admin.
+Require all denied
+Deny from all

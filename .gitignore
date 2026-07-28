@@ -1,0 +1,17 @@
+/vendor/
+/node_modules/
+
+config/database.php
+config/mail.php
+
+storage/mail.log
+
+.env
+
+*.log
+
+.idea/
+.vscode/
+
+.DS_Store
+Thumbs.db
